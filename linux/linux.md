@@ -383,3 +383,27 @@ id:3:initdefault:
   </p>
 </div>
 
+### SELinux
+
+SELinux——安全增强linux版本
+MAC(强制访问控制)和DAC(自主访问控制)
+[访问控制模型参考链接](https://blog.csdn.net/wangkaiblog/article/details/40745781)
+
+#### 配置文件`/etc/selinux/config`
+```
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=disabled
+# SELINUXTYPE= can take one of three values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected. 
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+该配置文件指定了SELinux的状态，enforcing——强制开启安全策略、permissive——在涉及到安全策略时打印警告、disable——关闭。
+
+通过`getenforce`命令可以查看当前SELinux的状态。
+
