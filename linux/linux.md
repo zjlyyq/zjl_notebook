@@ -364,3 +364,22 @@ id:3:initdefault:
 </div>
 
 ###### systemctl命令
+
+`systemctl enable/disable sshd.service`:开机启动/不启动ssh服务
+
+###### 运行级别
+
+<div style="text-align:center;">
+  <img src="Source/截屏2020-02-0114.58.58.png"/>
+  <p>
+    （查看当前运行级别文件）
+  </p>
+</div>
+
+<div style="text-align:center;">
+  <img src="Source/截屏2020-02-0115.12.42.png"/>
+  <p>
+    （设置默认运行级别）
+  </p>
+</div>
+
