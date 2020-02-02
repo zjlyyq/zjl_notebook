@@ -407,3 +407,65 @@ SELINUXTYPE=targeted
 
 通过`getenforce`命令可以查看当前SELinux的状态。
 
+### 内存和磁盘管理
+
+#### 内存和磁盘使用率查看
+##### 内存使用率
+###### top
+![](Source/2020-02-0210:38:12.png)
+> top命令结果的下半部是动态的展示进程所占用的资源
+
+###### free
+![](Source/2020-02-0210:28:26.png)
+> -m -g 分别代表用M和G表示
+
+##### 磁盘使用率
+###### fdisk
+```
+用法：
+ fdisk [选项] <磁盘>         更改分区表
+ fdisk [选项] -l [<磁盘>]     列出分区表
+
+显示或操作磁盘分区表。
+
+选项：
+ -b, --sectors-size <大小>     显示扇区计数和大小
+ -B, --protect-boot            创建新标签时不要擦除 bootbits
+ -c, --compatibility[=<模式>]  模式，为“dos”或“nondos”(默认)
+ -L, --color[=<时机>]          彩色输出(auto, always 或 never)
+                                 默认启用颜色
+ -l, --list                    显示分区并退出
+ -o, --output <列表>           输出列
+ -t, --type <类型>             只识别指定的分区表类型
+ -u, --units[=<单位>]          显示单位，“cylinders”柱面或“sectors”扇区(默认)
+ -s, --getsz                   以 512-字节扇区显示设备大小[已废弃]
+     -b, --bytes                   以字节为单位而非易读的格式来打印 SIZE
+ -w, --wipe <模式>             擦除签名(auto, always 或 never)
+ -W, --wipe-partitions <模式>  擦除新分区的签名(auto, always 或 never)
+
+ -C, --cylinders <数字>        指定柱面数
+ -H, --heads <数字>            指定磁头数
+ -S, --sectors <数字>          指定每条磁道的扇区数
+
+ -h, --help                    display this help
+ -V, --version                 display version
+
+```
+使用`fdisk -l`查看分区信息
+![](Source/2020-02-0211:16:54.png)
+> 可以看到除了sda还有好几个loop*文件
+
+![](Source/2020-02-0213:32:10.png)
+> 第一列表示这些文件都是[块设备](https://blog.csdn.net/lyq_csdn/article/details/80518308)，第二列表示主设备号，表示使用怎样的驱动程序。第三列表示从设备号，表示地址。
+
+![](Source/2020-02-0214:21:41.png)
+> 数字表示不同的分区。
+
+
+#### ext4文件系统
+#### 磁盘配额
+#### 磁盘分区和挂载
+#### 交换分区（虚拟内存）的查看与创建
+#### 软件RAID的使用
+#### 逻辑卷的管理
+#### 系统综合状态查看
